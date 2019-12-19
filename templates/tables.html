@@ -1,0 +1,315 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="tpl-content-wrapper">
+
+        <div class="row-content am-cf">
+
+
+            <div class="row">
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-6">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">支付宝支付</div>
+                            <div class="widget-function am-fr">
+                                <a href="javascript:;" class="am-icon-cog"></a>
+                            </div>
+                        </div>
+                        <div class="widget-body  widget-body-lg am-fr">
+
+                            <table width="100%" class="am-table am-table-compact tpl-table-black " id="example-r">
+                                <thead>
+                                <tr>
+                                    <th>支付金额</th>
+                                    <th>支付方式</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeX">
+                                    <td>100 rmb</td>
+                                    <td>支付宝</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="100">
+                                                <button type="submit" class="am-btn am-btn-secondary am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>300 rmb</td>
+                                    <td>支付宝</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="300">
+                                                <button type="submit" class="am-btn am-btn-secondary am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>500 rmb</td>
+                                    <td>支付宝</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="500">
+                                                <button type="submit" class="am-btn am-btn-secondary am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>800 rmb</td>
+                                    <td>支付宝</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="800">
+                                                <button type="submit" class="am-btn am-btn-secondary am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr class="even gradeC">
+                                    <td>1000 rmb</td>
+                                    <td>支付宝</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="1000">
+                                                <button type="submit" class="am-btn am-btn-secondary am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- more data -->
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-6">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">微信支付</div>
+                            <div class="widget-function am-fr">
+                                <a href="javascript:;" class="am-icon-cog"></a>
+                            </div>
+                        </div>
+                        <div class="widget-body  widget-body-lg am-fr">
+
+                            <table width="100%" class="am-table am-table-compact tpl-table-black " id="example-r">
+                                <thead>
+                                <tr>
+                                    <th>支付金额</th>
+                                    <th>支付方式</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeX">
+                                    <td>100 rmb</td>
+                                    <td>微信支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="100">
+                                                <button type="submit" class="am-btn am-btn-success am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>300 rmb</td>
+                                    <td>微信支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="300">
+                                                <button type="submit" class="am-btn am-btn-success am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>500 rmb</td>
+                                    <td>微信支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="500">
+                                                <button type="submit" class="am-btn am-btn-success am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>800 rmb</td>
+                                    <td>微信支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="800">
+                                                <button type="submit" class="am-btn am-btn-success am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr class="even gradeC">
+                                    <td>1000 rmb</td>
+                                    <td>微信支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'order' %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="1000">
+                                                <button type="submit" class="am-btn am-btn-success am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- more data -->
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="am-u-sm-12 am-u-md-12 am-u-lg-6">
+                    <div class="widget am-cf">
+                        <div class="widget-head am-cf">
+                            <div class="widget-title am-fl">银行卡支付</div>
+                            <div class="widget-function am-fr">
+                                <a href="javascript:;" class="am-icon-cog"></a>
+                            </div>
+                        </div>
+                        <div class="widget-body  widget-body-lg am-fr">
+
+                            <table width="100%" class="am-table am-table-compact tpl-table-black " id="example-r">
+                                <thead>
+                                <tr>
+                                    <th>支付金额</th>
+                                    <th>支付方式</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeX">
+                                    <td>100 rmb</td>
+                                    <td>银联支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'unipay' request.user.id %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="100">
+                                                <button type="submit" class="am-btn am-btn-default am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>300 rmb</td>
+                                    <td>银联支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'unipay' request.user.id %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="300">
+                                                <button type="submit" class="am-btn am-btn-default am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="gradeX">
+                                    <td>500 rmb</td>
+                                    <td>银联支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'unipay' request.user.id %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="500">
+                                                <button type="submit" class="am-btn am-btn-default am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeC">
+                                    <td>800 rmb</td>
+                                    <td>银联支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'unipay' request.user.id %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="800">
+                                                <button type="submit" class="am-btn am-btn-default am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr class="even gradeC">
+                                    <td>1000 rmb</td>
+                                    <td>银联支付</td>
+                                    <td>{{ datetime }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <form method="post" action="{% url 'unipay' request.user.id %}">
+                                                {% csrf_token %}
+                                                <input type="hidden" name="price" value="1000">
+                                                <button type="submit" class="am-btn am-btn-default am-btn-xs"><i class="am-icon-cc-paypal"></i> 支付</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <!-- more data -->
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

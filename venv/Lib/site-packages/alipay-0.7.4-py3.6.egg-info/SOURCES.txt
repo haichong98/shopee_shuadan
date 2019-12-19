@@ -1,0 +1,14 @@
+CHANGES.rst
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+src/alipay/__init__.py
+src/alipay/exceptions.py
+src/alipay/tests.py
+src/alipay.egg-info/PKG-INFO
+src/alipay.egg-info/SOURCES.txt
+src/alipay.egg-info/dependency_links.txt
+src/alipay.egg-info/not-zip-safe
+src/alipay.egg-info/requires.txt
+src/alipay.egg-info/top_level.txt

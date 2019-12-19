@@ -1,0 +1,97 @@
+{% extends 'index.html' %}
+{% block title %}
+            钱包
+{% endblock %}
+{% block table %}
+<table cellspacing="0">
+    <tr class="Features">
+        <td><img src="/static/images/shouye32.ico"></td>
+        <td><p>首页</p></td>
+    </tr>
+    <tr class="Features">
+        <td><img src="/static/images/geren32.ico"></td>
+        <td><p>个人中心</p></td>
+    </tr>
+    <tr class="Features" bgcolor="aqua">
+        <td><img src="/static/images/qianbao32.ico"></td>
+        <td><p>钱包</p></td>
+    </tr>
+    <tr class="Features">
+        <td><img src="/static/images/zhandan32.ico"></td>
+        <td><p>账单</p></td>
+    </tr>
+    <tr class="Features">
+        <td><img src="/static/images/tuichu32.ico"></td>
+        <td><p>退出</p></td>
+    </tr>
+</table>
+{% endblock %}
+{% block div %}
+    <div class="light">
+        <ul class="list-inline">
+            <li>
+                <h4>
+                    <span class="font-blue">账户等级：</span>
+                    <span class="font-red">{{ Permission }}</span>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <span class="font-blue">账户余额：</span>
+                    <span class="font-red">{{ money }}</span>
+                </h4>
+            </li>
+            <li class="chongzhi">
+                <a class="btn btn-sm red" href="#" data-toggle="modal" data-target="#charge_modal" style="color: #FFF;">充值</a>
+            </li>
+        </ul>
+</div>
+    <div>
+    <ul class="list-inline">
+            <li>
+                <img src="/static/images/shuoming.png">
+                <a href="#" class="shuoming">说明</a>
+            </li>
+    </ul>
+        <div class="light_bao">
+            <hr>
+        </div>
+    <div id="jietext">
+        <ul>
+            <li>
+                <p>
+                    <span class="span_text">产品介绍:</span>
+                </p>
+                <p>
+                    1.
+                </p>
+                <p>
+                    2.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <span class="span_text">充值说明:</span>
+                </p>
+                <p>
+                    1.
+                </p>
+                <p>
+                    2.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <span class="span_text">产品操作:</span>
+                </p>
+                <p>
+                    1.
+                </p>
+                <p>
+                    2.
+                </p>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

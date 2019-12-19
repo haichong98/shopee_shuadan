@@ -1,0 +1,149 @@
+{% extends 'index.html' %}
+{% block title %}
+            账单
+{% endblock %}
+{% block style %}
+    <script src="/static/js/jquery-3.4.1.js"></script>
+    <script src="/static/js/Bill.js" type="text/javascript"></script>
+    <script src="/static/js/layer/layer.js" type="text/javascript"></script>
+{% endblock %}
+{% block table %}
+<table cellspacing="0">
+    <tr class="Features">
+        <td><img src="/static/images/shouye32.ico"></td>
+        <td><p>首页</p></td>
+    </tr>
+    <tr class="Features">
+        <td><img src="/static/images/geren32.ico"></td>
+        <td><p>个人中心</p></td>
+    </tr>
+    <tr class="Features">
+        <td><img src="/static/images/qianbao32.ico"></td>
+        <td><p>钱包</p></td>
+    </tr>
+    <tr class="Features"  bgcolor="aqua">
+        <td><img src="/static/images/zhandan32.ico"></td>
+        <td><p>账单</p></td>
+    </tr>
+    <tr class="Features">
+        <td><img src="/static/images/tuichu32.ico"></td>
+        <td><p>退出</p></td>
+    </tr>
+</table>
+{% endblock %}
+
+{% block div %}
+    <div class="zhandan_bao" >
+        <div class="head_text">
+            <p>我的账单</p>
+        </div>
+        <hr>
+        <div class="zhangdan_list">
+            <table cellspacing="0" id="zhangdan_list">
+                <thead>
+                    <tr class="thead_tr">
+                        <th> # </th>
+                        <th> 编号 </th>
+                        <th> 服务 </th>
+                        <th> 套餐 </th>
+                        <th> 金额 </th>
+                        <th> 下单日期 </th>
+                        <th> 是否留评 </th>
+                        <th> 状态 </th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for au in authors %}
+                    <tr class="odd gradeX">
+                        {% if  forloop.revcounter %}
+                            <td>{{ forloop.counter|add:strat }}</td>
+                            <td><a href="http://127.0.0.1:8000/lookBill/{{ au.ID }}/">{{ au.ID }}</a></td>
+                            <td>{{ au.service }}</td>
+                            <td>套餐{{ au.package_num }}</td>
+                            <td>{{ au.price }}</td>
+                            <td>{{ au.add_date }}</td>
+                            {% if  au.xing == '0' %}
+                                <td>不留评论</td>
+                            {% else %}
+                                <td>{{ au.xing }}星评论</td>
+                            {% endif %}
+
+                            <td><a href="http://127.0.0.1:8000/lookBill/{{ au.ID }}/">{{ au.status }} </a></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        <div id="page_list">
+            <table id="pagination-list">
+                <tr id="pagination-flickr">
+                   {% if authors.has_previous %}
+                    <td>
+                        <a href="?page={{ authors.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </td>
+                {% endif %}
+                {% for pa in authors.paginator.page_range %}
+                    {% if authors.number == pa %}
+                        <td class="active presence"><p><a id="current" href="?page={{ pa }}">{{ pa }}</a></p></td>
+                    {% else %}
+                        <td class="presence"><p><a href="?page={{ pa }}">{{ pa }}</a></p></td>
+                    {% endif %}
+                {% endfor %}
+                {% if authors.has_next %}
+                    <td>
+                    <p>
+                        <a href="?page={{ authors.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </p>
+                    </td>
+                {% endif %}
+                <td class="html_tiao">
+                        <input id="tiao_num" type="text" value=""/>
+                    </td>
+                    <td class="html_tiao">
+                        <button id="tiao_button">跳转</button>
+                    </td>
+                </tr>
+
+            </table>
+{#            <ul id="pagination-flickr">#}
+{#                {% if authors.has_previous %}#}
+{#                    <li>#}
+{#                    <p>#}
+{#                        <a href="?page={{ authors.previous_page_number }}" aria-label="Previous">#}
+{#                            <span aria-hidden="true">&laquo;</span>#}
+{#                        </a>#}
+{#                    </p>#}
+{#                    </li>#}
+{#                {% endif %}#}
+{#                {% for pa in authors.paginator.page_range %}#}
+{#                    {% if authors.number == pa %}#}
+{#                        <li class="active presence"><p><a id="current" href="?page={{ pa }}">{{ pa }}</a></p></li>#}
+{#                    {% else %}#}
+{#                        <li class="presence"><p><a href="?page={{ pa }}">{{ pa }}</a></p></li>#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#                {% if authors.has_next %}#}
+{#                    <li>#}
+{#                    <p>#}
+{#                        <a href="?page={{ authors.next_page_number }}" aria-label="Next">#}
+{#                            <span aria-hidden="true">&raquo;</span>#}
+{#                        </a>#}
+{#                    </p>#}
+{#                    </li>#}
+{#                {% endif %}#}
+{#                <li class="html_tiao">#}
+{#                    <input id="tiao_num" type="text" value=""/>#}
+{#                </li>#}
+{#                <li class="html_tiao">#}
+{#                    <button id="tiao_button">跳转</button>#}
+{#                </li>#}
+{#            </ul>#}
+        </div>
+    </div>
+{% endblock %}

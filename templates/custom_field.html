@@ -1,0 +1,5 @@
+{% load i18n %}
+{% spaceless %}
+    <img src="{{ image }}" alt="captcha" class="captcha"/>
+    {% include "django/forms/widgets/multiwidget.html" %}
+{% endspaceless %}

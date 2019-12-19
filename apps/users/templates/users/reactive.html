@@ -1,0 +1,61 @@
+{% extends 'auth_base.html' %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" type="text/css">
+    <style>
+        .login_form {
+            padding-top: 220px;
+        }
+
+        .login_logo {
+            padding-left: 47px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="login_form">
+        <div class="row">
+            <div class="logo col-md-4 col-md-offset-4">
+                <a class="login_logo" href="{% url 'register' %}"> <img src="{% static 'images/shopee.png' %} " alt=""
+                                                                        style="max-width:300px; max-height:90px;"/> </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="login-form col-md-4 col-md-offset-4">
+                {% bootstrap_javascript jquery=1 %}
+                {% bootstrap_messages %}
+                <form class="login-form" action="{% url 'reactive' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group"><label class="control-label" for="id_username">邮箱</label><input
+                            type="text" name="email" class="form-control" placeholder="邮箱" title="" required=""
+                            id="id_username"></div>
+                    <div class="form-group captcha1">
+                        <label>验证码</label>
+                        {{ forget_form.captcha }}
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary left">
+                            提交
+                        </button>
+                        <p class="small pull-right btn" id="reset"><a href="{% url 'login' %}">直接登录</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+        $('.captcha').click(function () {
+            $.getJSON("/captcha/refresh/", function (result) {
+                $('.captcha').attr('src', result['image_url']);
+                $('#id_captcha_0').val(result['key'])
+            });
+        });
+        $(".captcha1 > input").addClass("form-control").attr("placeholder", "验证码");
+    </script>
+{% endblock %}

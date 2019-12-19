@@ -1,0 +1,83 @@
+{% extends 'index.html' %}
+{% block title %}
+            账单
+{% endblock %}
+{% block style %}
+    <script src="/static/js/jquery-3.4.1.js"></script>
+    <script src="/static/js/layer/layer.js" type="text/javascript"></script>
+    <script src="/static/js/lookBill.js" type="text/javascript"></script>
+{% endblock %}
+{% block table %}
+<table cellspacing="0">
+    <tr class="Features">
+        <td><img src="/static/images/shouye32.ico"></td>
+        <td><p>首页</p></td>
+    </tr>
+    <tr class="Features">
+        <td><img src="/static/images/geren32.ico"></td>
+        <td><p>个人中心</p></td>
+    </tr>
+    <tr class="Features">
+        <td><img src="/static/images/qianbao32.ico"></td>
+        <td><p>钱包</p></td>
+    </tr>
+    <tr class="Features"  bgcolor="aqua">
+        <td><img src="/static/images/zhandan32.ico"></td>
+        <td><p>账单</p></td>
+    </tr>
+    <tr class="Features">
+        <td><img src="/static/images/tuichu32.ico"></td>
+        <td><p>退出</p></td>
+    </tr>
+</table>
+{% endblock %}
+
+{% block div %}
+    <div id = xiangqing>
+        <table class="table1">
+            <tr>
+                <td class="td_biaotou"><p><span>订单ID:</span></p></td>
+                <td><p><span>{{ ID }}</span></p></td>
+                <td class="td_biaotou"><p><span>订单价格:</span></p></td>
+                <td><p><span>{{ price_count }}</span></p></td>
+            </tr>
+            <tr>
+                <td class="td_biaotou"><p><span>套餐:</span></p></td>
+                <td><p><span>套餐{{ package_num }}</span></p></td>
+                <td class="td_biaotou"><p><span>订单状态:</span></p></td>
+                <td><p><span>{{ status }}</span></p></td>
+            </tr>
+            <tr>
+                <td class="td_biaotou"><p><span>商品名:</span></p></td>
+                <td colspan="3"><p><span>{{ shop_name }}</span></p></td>
+            </tr>
+            <tr>
+                <td class="td_biaotou"><p><span>产品关键词:</span></p></td>
+                <td><p><span>{{ Key_words }}</span></p></td>
+                <td class="td_biaotou"><p><span>产品ID:</span></p></td>
+                <td><p><span>{{ shop_id }}</span></p></td>
+            </tr>
+            <tr>
+                <td class="td_biaotou"><p><span>产品价格:</span></p></td>
+                <td><p><span>{{ shop_price }}</span></p></td>
+                <td class="td_biaotou"><p><span>刷单次数:</span></p></td>
+                <td><p><span>{{ shop_num }}</span></p></td>
+            </tr>
+            <tr>
+                <td class="td_biaotou"><p><span>订单时间:</span></p></td>
+                <td><p><span>{{ add_date }}</span></p></td>
+                <td class="td_biaotou"><p><span>评论星级:</span></p></td>
+                <td><p><span>{{ xing }}</span></p></td>
+            </tr>
+            <tr>
+                <td class="td_biaotou"><p><span>评论内容:</span></p></td>
+                <td colspan="3"><p><span>{{ textarea }}</span></p></td>
+            </tr>
+        </table>
+        <div class="zhuche pull-right">
+                <p>
+                    <a href="javascript:history.go(-1)">返回上一步</a>
+                </p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'auth_base.html' %}
+
+
+{% block content %}
+    <div class="am-g tpl-g">
+        <div class="tpl-login">
+            <div class="tpl-login-content">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="am-alert {% if message.tags %}am-alert-{{ message.tags }}{% endif %}" data-am-alert>
+                            <button type="button" class="am-close">&times;</button>
+                            <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div class="tpl-login-title">注册用户</div>
+                <span class="tpl-login-content-info">
+                  创建一个新的用户
+              </span>
+
+
+                <form class="am-form tpl-form-line-form" method="post" action="{% url 'register' %}">
+                    {% csrf_token %}
+
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" id="user-name" placeholder="邮箱" name="email">
+
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" id="user-name" placeholder="用户名" name="username">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input" id="user-name" placeholder="请输入密码" name="password1">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input" id="user-name" placeholder="再次输入密码" name="password2">
+                    </div>
+
+                    <div class="am-form-group captcha1">
+                        {{ register_form.captcha }}
+                    </div>
+
+                    <div class="am-form-group">
+                        <button type="submit"
+                                class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">注册
+                        </button>
+                        <a class="am-btn am-btn-warning  am-btn-block tpl-btn-bg-color-success  tpl-register-btn"
+                           href="{% url 'login' %}">直接登录</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+        $('.captcha').click(function () {
+            $.getJSON("/captcha/refresh/", function (result) {
+                $('.captcha').attr('src', result['image_url']);
+                $('#id_captcha_0').val(result['key'])
+            });
+        });
+        $("#id_captcha_1").attr("placeholder","验证码");
+    </script>
+{% endblock %}

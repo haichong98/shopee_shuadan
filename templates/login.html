@@ -1,0 +1,48 @@
+{% extends 'auth_base.html' %}
+
+{% block content %}
+    <div class="am-g tpl-g">
+        <div class="tpl-login">
+            <div class="tpl-login-content">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="am-alert {% if message.tags %}am-alert-{{ message.tags }}{% endif %}" data-am-alert>
+                            <button type="button" class="am-close">&times;</button>
+                            <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                <div class="tpl-login-logo">
+
+                </div>
+
+
+                <form class="am-form tpl-form-line-form" action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="am-form-group">
+                        <input type="text" class="tpl-form-input" id="user-name" placeholder="请输入邮箱" name="username">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password" class="tpl-form-input" id="user-name" placeholder="请输入密码"
+                               name="password">
+
+                    </div>
+
+
+                    <div class="am-form-group">
+                        <button type="submit"
+                                class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">登录
+                        </button>
+                        <a class="am-btn am-btn-warning  am-btn-block tpl-btn-bg-color-success  tpl-register-btn"
+                           href="{% url 'register' %}">注册</a>
+                        <a class="am-btn am-btn-danger  am-btn-block tpl-btn-bg-color-success tpl-forget-btn"
+                           href="{% url 'forget_pwd' %}">忘记密码</a>
+                        <a class="am-btn am-btn-link am-btn-block tpl-reset-btn" href="{% url 'reactive' %}">重新激活</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
